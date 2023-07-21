@@ -1,0 +1,41 @@
+[2023-07-14 19:49:00,131][nuplan.planning.script.builders.folder_builder][INFO] - Building experiment folders...
+[2023-07-14 19:49:00,132][nuplan.planning.script.builders.folder_builder][INFO] - Experimental folder: /nishka/nuplan/exp/exp/training/gpu0workerstrain_simple_vector_map_model/2023.07.14.19.48.58
+[2023-07-14 19:49:00,132][nuplan.planning.script.builders.worker_pool_builder][INFO] - Building WorkerPool...
+[2023-07-14 19:49:00,134][nuplan.planning.utils.multithreading.worker_ray][INFO] - Starting ray local!
+[2023-07-14 19:49:03,064][nuplan.planning.utils.multithreading.worker_pool][INFO] - Worker: RayDistributed
+[2023-07-14 19:49:03,064][nuplan.planning.utils.multithreading.worker_pool][INFO] - Number of nodes: 1
+Number of CPUs per node: 80
+Number of GPUs per node: 1
+Number of threads across all nodes: 80
+[2023-07-14 19:49:03,064][nuplan.planning.script.builders.worker_pool_builder][INFO] - Building WorkerPool...DONE!
+[2023-07-14 19:49:03,064][nuplan.planning.training.experiments.training][INFO] - Building training engine...
+[2023-07-14 19:49:03,065][nuplan.planning.script.builders.model_builder][INFO] - Building TorchModuleWrapper...
+[2023-07-14 19:49:03,222][nuplan.planning.script.builders.model_builder][INFO] - Building TorchModuleWrapper...DONE!
+[2023-07-14 19:49:03,223][nuplan.planning.script.builders.splitter_builder][INFO] - Building Splitter...
+[2023-07-14 19:49:03,950][nuplan.planning.script.builders.splitter_builder][INFO] - Building Splitter...DONE!
+[2023-07-14 19:49:03,951][nuplan.planning.script.builders.data_augmentation_builder][INFO] - Building augmentors...
+[2023-07-14 19:49:03,973][nuplan.planning.script.builders.data_augmentation_builder][INFO] - Building augmentors...DONE!
+[2023-07-14 19:49:03,974][nuplan.planning.script.builders.scenario_building_builder][INFO] - Building AbstractScenarioBuilder...
+[2023-07-14 19:49:03,987][nuplan.planning.script.builders.scenario_building_builder][INFO] - Building AbstractScenarioBuilder...DONE!
+[2023-07-14 19:49:03,987][nuplan.planning.script.builders.scenario_filter_builder][INFO] - Building ScenarioFilter...
+[2023-07-14 19:49:03,988][nuplan.planning.script.builders.scenario_filter_builder][INFO] - Building ScenarioFilter...DONE!
+[2023-07-14 19:49:07,816][nuplan.planning.script.builders.scenario_builder][INFO] - Extracted 159606 scenarios for training
+[2023-07-14 19:49:07,817][nuplan.planning.script.builders.utils.utils_config][INFO] - WORLD_SIZE was not set.
+[2023-07-14 19:49:07,817][nuplan.planning.script.builders.utils.utils_config][INFO] - PytorchLightning Trainer gpus was set to -1, finding number of GPUs used from torch.cuda.device_count().
+[2023-07-14 19:49:07,818][nuplan.planning.script.builders.utils.utils_config][INFO] - Number of gpus found to be in use: 1
+[2023-07-14 19:49:07,818][nuplan.planning.script.builders.utils.utils_config][INFO] - World size: 1
+[2023-07-14 19:49:07,818][nuplan.planning.script.builders.utils.utils_config][INFO] - Learning rate before: 5e-05
+[2023-07-14 19:49:07,818][nuplan.planning.script.builders.utils.utils_config][INFO] - Scaling method: Equal Variance
+[2023-07-14 19:49:07,819][nuplan.planning.script.builders.utils.utils_config][INFO] - Betas after scaling: [0.9, 0.999]
+[2023-07-14 19:49:07,819][nuplan.planning.script.builders.utils.utils_config][INFO] - Learning rate after scaling: 5e-05
+[2023-07-14 19:49:07,820][nuplan.planning.script.builders.utils.utils_config][INFO] - Optimizer and LR Scheduler configs updated according to ddp strategy.
+[2023-07-14 19:49:07,826][nuplan.planning.script.builders.training_callback_builder][INFO] - Building callbacks...
+[2023-07-14 19:49:07,838][nuplan.planning.script.builders.training_callback_builder][INFO] - Building callbacks...DONE!
+[2023-07-14 19:49:07,841][__main__][INFO] - Starting training...
+[2023-07-14 19:49:07,923][torch.distributed.distributed_c10d][INFO] - Added key: store_based_barrier_key:1 to store for rank: 0
+[2023-07-14 19:49:07,923][torch.distributed.distributed_c10d][INFO] - Rank 0: Completed store-based barrier for 1 nodes.
+[2023-07-14 19:49:11,912][nuplan.planning.training.data_loader.datamodule][INFO] - Number of samples in train set: 103999
+[2023-07-14 19:49:12,005][nuplan.planning.training.data_loader.datamodule][INFO] - Number of samples in validation set: 25607
+[2023-07-14 19:49:12,010][nuplan.planning.training.modeling.lightning_module_wrapper][INFO] - Using optimizer: torch.optim.Adam
+[2023-07-14 19:49:12,010][nuplan.planning.script.builders.lr_scheduler_builder][INFO] - Not using any lr_schedulers.
+[2023-07-14 19:49:12,390][root][INFO] - Reducer buckets have been rebuilt in this iteration.

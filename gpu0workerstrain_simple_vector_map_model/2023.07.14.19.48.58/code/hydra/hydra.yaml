@@ -1,0 +1,183 @@
+hydra:
+  run:
+    dir: ${output_dir}
+  sweep:
+    dir: multirun/${now:%Y-%m-%d}/${now:%H-%M-%S}
+    subdir: ${hydra.job.num}
+  launcher:
+    _target_: hydra._internal.core_plugins.basic_launcher.BasicLauncher
+  sweeper:
+    _target_: hydra._internal.core_plugins.basic_sweeper.BasicSweeper
+    max_batch_size: null
+  help:
+    app_name: ${hydra.job.name}
+    header: '${hydra.help.app_name} is powered by Hydra.
+
+      '
+    footer: 'Powered by Hydra (https://hydra.cc)
+
+      Use --hydra-help to view Hydra specific help
+
+      '
+    template: '${hydra.help.header}
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (group=option)
+
+
+      $APP_CONFIG_GROUPS
+
+
+      == Config ==
+
+      Override anything in the config (foo.bar=value)
+
+
+      $CONFIG
+
+
+      ${hydra.help.footer}
+
+      '
+  hydra_help:
+    template: 'Hydra (${hydra.runtime.version})
+
+      See https://hydra.cc for more info.
+
+
+      == Flags ==
+
+      $FLAGS_HELP
+
+
+      == Configuration groups ==
+
+      Compose your configuration from those groups (For example, append hydra/job_logging=disabled
+      to command line)
+
+
+      $HYDRA_CONFIG_GROUPS
+
+
+      Use ''--cfg hydra'' to Show the Hydra config.
+
+      '
+    hydra_help: ???
+  hydra_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][HYDRA] %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+    root:
+      level: INFO
+      handlers:
+      - console
+    loggers:
+      logging_example:
+        level: DEBUG
+    disable_existing_loggers: false
+  job_logging:
+    version: 1
+    formatters:
+      simple:
+        format: '[%(asctime)s][%(name)s][%(levelname)s] - %(message)s'
+    handlers:
+      console:
+        class: logging.StreamHandler
+        formatter: simple
+        stream: ext://sys.stdout
+      file:
+        class: logging.FileHandler
+        formatter: simple
+        filename: ${hydra.job.name}.log
+    root:
+      level: INFO
+      handlers:
+      - console
+      - file
+    disable_existing_loggers: false
+  env: {}
+  searchpath:
+  - pkg://nuplan.planning.script.config.common
+  - pkg://nuplan.planning.script.experiments
+  callbacks: {}
+  output_subdir: ${output_dir}/code/hydra
+  overrides:
+    hydra: []
+    task:
+    - job_name=gpu0workerstrain_simple_vector_map_model
+    - py_func=train
+    - objective_aggregate_mode=mean
+    - data_augmentation=kinematic_agent_augmentation
+    - objective=imitation_objective
+    - splitter=nuplan
+    - model=simple_vector_model
+    - scenario_filter=training_scenarios
+    - training_metric=avg_displacement_error
+  job:
+    name: run_training
+    override_dirname: data_augmentation=kinematic_agent_augmentation,job_name=gpu0workerstrain_simple_vector_map_model,model=simple_vector_model,objective=imitation_objective,objective_aggregate_mode=mean,py_func=train,scenario_filter=training_scenarios,splitter=nuplan,training_metric=avg_displacement_error
+    id: ???
+    num: ???
+    config_name: default_training
+    env_set: {}
+    env_copy: []
+    config:
+      override_dirname:
+        kv_sep: '='
+        item_sep: ','
+        exclude_keys: []
+  runtime:
+    version: 1.1.0.rc1
+    cwd: /nishka/nuplan-devkit/nuplan
+    config_sources:
+    - path: hydra.conf
+      schema: pkg
+      provider: hydra
+    - path: /nishka/nuplan-devkit/nuplan/planning/script/config/training
+      schema: file
+      provider: main
+    - path: nuplan.planning.script.config.common
+      schema: pkg
+      provider: hydra.searchpath in main
+    - path: nuplan.planning.script.experiments
+      schema: pkg
+      provider: hydra.searchpath in main
+    - path: ''
+      schema: structured
+      provider: schema
+    choices:
+      scenario_type_weights: default_scenario_type_weights
+      data_augmentation_scheduler: null
+      data_augmentation: kinematic_agent_augmentation
+      training_metric: avg_displacement_error
+      objective: imitation_objective
+      splitter: nuplan
+      data_loader: default_data_loader
+      warm_up_lr_scheduler: null
+      lr_scheduler: null
+      optimizer: adam
+      callbacks: default_callbacks
+      lightning: default_lightning
+      worker: ray_distributed
+      model: simple_vector_model
+      scenario_filter: training_scenarios
+      scenario_builder: nuplan_mini
+      scenario_builder/scenario_mapping: nuplan_scenario_mapping
+      scenario_builder/vehicle_parameters: nuplan_vehicle_parameters
+      hydra/env: default
+      hydra/callbacks: null
+      hydra/job_logging: default
+      hydra/hydra_logging: default
+      hydra/hydra_help: default
+      hydra/help: default
+      hydra/sweeper: basic
+      hydra/launcher: basic
+      hydra/output: default
+  verbose: false

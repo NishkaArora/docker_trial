@@ -1,0 +1,9 @@
+- job_name=cpu_train_simple_vector_map_model
+- py_func=train
+- objective_aggregate_mode=mean
+- data_augmentation=kinematic_agent_augmentation
+- objective=imitation_objective
+- splitter=nuplan
+- model=simple_vector_model
+- scenario_filter=training_scenarios
+- training_metric=avg_displacement_error

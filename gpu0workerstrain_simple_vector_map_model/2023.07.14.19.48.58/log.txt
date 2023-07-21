@@ -1,0 +1,41 @@
+2023-07-14 19:49:00,131 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/folder_builder.py:20}  Building experiment folders...
+2023-07-14 19:49:00,132 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/folder_builder.py:22}  Experimental folder: /nishka/nuplan/exp/exp/training/gpu0workerstrain_simple_vector_map_model/2023.07.14.19.48.58
+2023-07-14 19:49:00,132 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/worker_pool_builder.py:19}  Building WorkerPool...
+2023-07-14 19:49:00,134 INFO {/nishka/nuplan-devkit/nuplan/planning/utils/multithreading/worker_ray.py:78}  Starting ray local!
+2023-07-14 19:49:03,064 INFO {/nishka/nuplan-devkit/nuplan/planning/utils/multithreading/worker_pool.py:101}  Worker: RayDistributed
+2023-07-14 19:49:03,064 INFO {/nishka/nuplan-devkit/nuplan/planning/utils/multithreading/worker_pool.py:102}  Number of nodes: 1
+Number of CPUs per node: 80
+Number of GPUs per node: 1
+Number of threads across all nodes: 80
+2023-07-14 19:49:03,064 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/worker_pool_builder.py:27}  Building WorkerPool...DONE!
+2023-07-14 19:49:03,064 INFO {/nishka/nuplan-devkit/nuplan/planning/training/experiments/training.py:41}  Building training engine...
+2023-07-14 19:49:03,065 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/model_builder.py:18}  Building TorchModuleWrapper...
+2023-07-14 19:49:03,222 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/model_builder.py:21}  Building TorchModuleWrapper...DONE!
+2023-07-14 19:49:03,223 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/splitter_builder.py:18}  Building Splitter...
+2023-07-14 19:49:03,950 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/splitter_builder.py:21}  Building Splitter...DONE!
+2023-07-14 19:49:03,951 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/data_augmentation_builder.py:19}  Building augmentors...
+2023-07-14 19:49:03,973 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/data_augmentation_builder.py:28}  Building augmentors...DONE!
+2023-07-14 19:49:03,974 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/scenario_building_builder.py:18}  Building AbstractScenarioBuilder...
+2023-07-14 19:49:03,987 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/scenario_building_builder.py:21}  Building AbstractScenarioBuilder...DONE!
+2023-07-14 19:49:03,987 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/scenario_filter_builder.py:35}  Building ScenarioFilter...
+2023-07-14 19:49:03,988 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/scenario_filter_builder.py:44}  Building ScenarioFilter...DONE!
+2023-07-14 19:49:07,816 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/scenario_builder.py:171}  Extracted 159606 scenarios for training
+2023-07-14 19:49:07,817 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:258}  WORLD_SIZE was not set.
+2023-07-14 19:49:07,817 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:266}  PytorchLightning Trainer gpus was set to -1, finding number of GPUs used from torch.cuda.device_count().
+2023-07-14 19:49:07,818 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:277}  Number of gpus found to be in use: 1
+2023-07-14 19:49:07,818 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:114}  World size: 1
+2023-07-14 19:49:07,818 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:115}  Learning rate before: 5e-05
+2023-07-14 19:49:07,818 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:119}  Scaling method: Equal Variance
+2023-07-14 19:49:07,819 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:141}  Betas after scaling: [0.9, 0.999]
+2023-07-14 19:49:07,819 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:143}  Learning rate after scaling: 5e-05
+2023-07-14 19:49:07,820 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/utils/utils_config.py:245}  Optimizer and LR Scheduler configs updated according to ddp strategy.
+2023-07-14 19:49:07,826 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/training_callback_builder.py:19}  Building callbacks...
+2023-07-14 19:49:07,838 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/training_callback_builder.py:37}  Building callbacks...DONE!
+2023-07-14 19:49:07,841 INFO {/nishka/nuplan-devkit/nuplan/planning/script/run_training.py:62}  Starting training...
+2023-07-14 19:49:07,923 INFO {/nishka/miniconda3/envs/nuplan/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:194}  Added key: store_based_barrier_key:1 to store for rank: 0
+2023-07-14 19:49:07,923 INFO {/nishka/miniconda3/envs/nuplan/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py:224}  Rank 0: Completed store-based barrier for 1 nodes.
+2023-07-14 19:49:11,912 INFO {/nishka/nuplan-devkit/nuplan/planning/training/data_loader/datamodule.py:47}  Number of samples in train set: 103999
+2023-07-14 19:49:12,005 INFO {/nishka/nuplan-devkit/nuplan/planning/training/data_loader/datamodule.py:47}  Number of samples in validation set: 25607
+2023-07-14 19:49:12,010 INFO {/nishka/nuplan-devkit/nuplan/planning/training/modeling/lightning_module_wrapper.py:196}  Using optimizer: torch.optim.Adam
+2023-07-14 19:49:12,010 INFO {/nishka/nuplan-devkit/nuplan/planning/script/builders/lr_scheduler_builder.py:52}  Not using any lr_schedulers.
+2023-07-14 19:49:12,390 INFO {/nishka/miniconda3/envs/nuplan/lib/python3.9/site-packages/torch/nn/parallel/distributed.py:788}  Reducer buckets have been rebuilt in this iteration.
